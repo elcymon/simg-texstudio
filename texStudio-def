@@ -1,0 +1,15 @@
+Bootstrap: docker
+
+From: ubuntu:18.04
+
+%post
+    apt-get -y update
+    apt-get -y install software-properties-common
+    add-apt-repository ppa:sunderme/texstudio
+    apt-get -y update
+    apt-get -y install texstudio
+%environment
+    export LC_ALL=C.UTF-8
+
+%runscript
+    texstudio "$@"
